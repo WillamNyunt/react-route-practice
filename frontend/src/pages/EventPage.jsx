@@ -1,11 +1,14 @@
-import React from 'react'
-import EventsList from '../components/EventsList'
-import DUMMY_EVENTS  from '../data/dummyEvents'
-export default function EventsPage(props) {
-    return (
-        <>
-            <h1>Events</h1>
-            <EventsList events={DUMMY_EVENTS} />
-        </>
-    )
+import { useEffect, useState } from 'react';
+
+import EventsList from '../components/EventsList';
+
+function EventsPage() {
+
+  return (
+    <>
+      {!isLoading && fetchedEvents && <EventsList events={fetchedEvents} />}
+    </>
+  );
 }
+
+export default EventsPage;

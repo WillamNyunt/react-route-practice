@@ -36,21 +36,30 @@ import {
 function App() {
 
   const Router = createBrowserRouter(
-   [ {
+    [{
       path: '/',
-      element: <RootLayout/>,
+      element: <RootLayout />,
       children: [
         {
           index: true,
           element: <HomePage />
         }
-        ,{
+        , {
           path: '/events',
           element: <EventsRoot />,
           children: [
             {
               index: true,
-              element: <EventsPage />
+              element: <EventsPage />,
+              loader: async () => {
+                const response = await fetch('http://localhost:8080/events');
+                if (!response.ok) {
+                  throw new Error('Something went wrong!');
+                } else {
+                  const resData = await response.json();
+                  return resData.events;
+                }
+              }
             }
             ,
             {
@@ -69,11 +78,11 @@ function App() {
         }
       ]
     }
-  ]);
+    ]);
 
 
   return <div>
-    <RouterProvider router={Router}/>
+    <RouterProvider router={Router} />
   </div>;
 }
 

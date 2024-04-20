@@ -13,7 +13,7 @@ function EventItem({ event }) {
       <time>{event.date}</time>
       <p>{event.description}</p>
       <menu className={classes.actions}>
-        <Link href={`edit/${event.id}`} to=''>Edit</Link>
+        <Link to={`edit`}>Edit 1</Link>
         <button onClick={startDeleteHandler}>Delete</button>
       </menu>
     </article>
