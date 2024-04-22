@@ -30,6 +30,7 @@ import ErrorPage from './pages/ErrorPage';
 import EventsRoot from './pages/EventsRoot';
 import { loader as eventsLoader } from './pages/EventPage';
 import { loader as eventDetailLoader } from './pages/EventDetailPage';
+import { action as newEventAction } from './NewEventPage';
 
 import {
   createBrowserRouter,
@@ -75,7 +76,8 @@ function App() {
             },
             {
               path: 'new',
-              element: <NewEventPage />
+              element: <NewEventPage />,
+              action: newEventAction
             }
           ]
         }
