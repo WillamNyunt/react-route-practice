@@ -26,8 +26,10 @@ import EventDetailPage from './pages/EventDetailPage';
 import NewEventPage from './pages/NewEventPage';
 import EditEventPage from './pages/EditEventPage';
 import RootLayout from './pages/Root';
+import ErrorPage from './pages/ErrorPage';
 import EventsRoot from './pages/EventsRoot';
 import { loader as eventsLoader } from './pages/EventPage';
+import { loader as eventDetailLoader } from './pages/EventDetailPage';
 
 import {
   createBrowserRouter,
@@ -40,6 +42,7 @@ function App() {
     [{
       path: '/',
       element: <RootLayout />,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
@@ -56,16 +59,23 @@ function App() {
             }
             ,
             {
-              path: ':id',
-              element: <EventDetailPage />
+              path: ':eventId',
+              loader: eventDetailLoader,
+              id: 'event-detail',
+              children: [
+                {
+                  index: true,
+                  element: <EventDetailPage />,
+                },
+                {
+                  path: 'edit',
+                  element: <EditEventPage />
+                }
+              ]
             },
             {
               path: 'new',
               element: <NewEventPage />
-            },
-            {
-              path: ':id/edit',
-              element: <EditEventPage />
             }
           ]
         }
