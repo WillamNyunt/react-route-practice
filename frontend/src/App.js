@@ -30,7 +30,7 @@ import ErrorPage from './pages/ErrorPage';
 import EventsRoot from './pages/EventsRoot';
 import { loader as eventsLoader } from './pages/EventPage';
 import { loader as eventDetailLoader } from './pages/EventDetailPage';
-import { action as newEventAction } from './NewEventPage';
+import { action as newEventAction } from './pages/NewEventPage';
 
 import {
   createBrowserRouter,
