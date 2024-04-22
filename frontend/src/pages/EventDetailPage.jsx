@@ -1,10 +1,9 @@
 import React from 'react'
 import EventItem from '../components/EventItem'
-import { json, useRouteLoaderData } from 'react-router-dom'
+import { json, useRouteLoaderData, redirect } from 'react-router-dom'
 
 export default function EventsDetailPage(props) {
     const data = useRouteLoaderData('event-detail')
-    console.log(data)
     return (
         <>
             <h1>
@@ -25,7 +24,19 @@ export async function loader({params}) {
             status: 500
         })
     } else {
-        console.log(response)
         return response
+    }
+}
+
+export async function action({params, request}) {
+    console.log(request.method)
+    const response = await fetch(`http://localhost:8080/events/${params.eventId}`, {method: request.method})
+    if (!response.ok) {
+        throw json({
+            message: 'Could not delete event',
+            status: 500
+        })
+    } else {
+        return redirect('/events');
     }
 }

@@ -31,6 +31,7 @@ import EventsRoot from './pages/EventsRoot';
 import { loader as eventsLoader } from './pages/EventPage';
 import { loader as eventDetailLoader } from './pages/EventDetailPage';
 import { action as newEventAction } from './pages/NewEventPage';
+import { action as deleteEventAction } from './pages/EventDetailPage';
 
 import {
   createBrowserRouter,
@@ -67,6 +68,7 @@ function App() {
                 {
                   index: true,
                   element: <EventDetailPage />,
+                  action: deleteEventAction
                 },
                 {
                   path: 'edit',
