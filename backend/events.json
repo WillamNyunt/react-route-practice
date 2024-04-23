@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"Gamer's convention","image":"https://support.musicgateway.com/wp-content/uploads/2021/07/Copy-of-800-x-500-Blog-Post-3-1.png","date":"2024-04-25","description":"See the latest games coming out now!","id":"e24d50d7-02f2-4750-bf76-a604a7264427"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
